@@ -25,7 +25,6 @@ describe('contributors', function () {
   it('should get a valid response (json) from the github api:', function (cb) {
     contributors('assemble/assemble', function (err, res) {
       if (err) console.log(err);
-      console.log(res)
       res.should.be.an.array;
       res[0].should.have.properties(['login', 'id', 'avatar_url', 'gravatar_id']);
       cb();
