@@ -19,9 +19,6 @@ module.exports = function contributors(repo, options, cb) {
   }
 
   options = options || {};
-  options.id = '870f56b81f58ef031918';
-  options.secret = '71ae2dd919a3f0a2eb7d441c03d92e24c37387df';
-
   var url = 'repos/' + repo + '/contributors';
   base(url, options, function (err, res) {
     if (err) return cb(err);
