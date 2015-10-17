@@ -1,11 +1,11 @@
-# github-contributors [![NPM version](https://badge.fury.io/js/github-contributors.svg)](http://badge.fury.io/js/github-contributors)  [![Build Status](https://travis-ci.org/jonschlinkert/github-contributors.svg)](https://travis-ci.org/jonschlinkert/github-contributors) 
+# github-contributors [![NPM version](https://badge.fury.io/js/github-contributors.svg)](http://badge.fury.io/js/github-contributors)  [![Build Status](https://travis-ci.org/jonschlinkert/github-contributors.svg)](https://travis-ci.org/jonschlinkert/github-contributors)
 
-> Get a markdown or JSON list of contributors for a project using the GitHub API.
+> Generate a markdown or JSON list of contributors for a project using the GitHub API.
 
-## Install with [npm](npmjs.org)
+Install with [npm](https://www.npmjs.com/)
 
-```bash
-npm i github-contributors --save
+```sh
+$ npm i github-contributors --save
 ```
 
 ## Usage
@@ -62,9 +62,9 @@ contributors('assemble/assemble', opts, function(err, res) {
 
 Instead of JSON, get a markdown-formatted list by defining one of the following on `options.format`
 
-- `list`
-- `aligned`
-- `table`
+* `list`
+* `aligned`
+* `table`
 
 Here are some examples.
 
@@ -73,10 +73,11 @@ Here are some examples.
 Contributors from [jonschlinkert/micromatch](https://github.com/jonschlinkert/micromatch)
 
 **Commits** / **Contributor**
-+ 253 [jonschlinkert](https://github.com/jonschlinkert)
-+ 4   [es128](https://github.com/es128)
-+ 1   [UltCombo](https://github.com/UltCombo)
-+ 1   [tomByrer](https://github.com/tomByrer)
+
+* 253 [jonschlinkert](https://github.com/jonschlinkert)
+* 4   [es128](https://github.com/es128)
+* 1   [UltCombo](https://github.com/UltCombo)
+* 1   [tomByrer](https://github.com/tomByrer)
 
 ### aligned list
 
@@ -95,53 +96,55 @@ COMMITS / CONTRIBUTOR
 
 Contributors from [assemble/assemble](https://github.com/assemble/assemble)
 
-| **Commits** | **Contributor**<br/> |
-| --- | --- |
-| 949 | [jonschlinkert](https://github.com/jonschlinkert) |
-| 577 | [doowb](https://github.com/doowb) |
-| 11  | [adjohnson916](https://github.com/adjohnson916) |
-| 7   | [Arkkimaagi](https://github.com/Arkkimaagi) |
-| 4   | [bendrucker](https://github.com/bendrucker) |
-| 2   | [avr](https://github.com/avr) |
-| 2   | [thegreatsunra](https://github.com/thegreatsunra) |
-| 2   | [StevenBlack](https://github.com/StevenBlack) |
-| 2   | [xzyfer](https://github.com/xzyfer) |
-| 2   | [ain](https://github.com/ain) |
-| 1   | [prettyboymp](https://github.com/prettyboymp) |
-| 1   | [asans](https://github.com/asans) |
-| 1   | [bauerca](https://github.com/bauerca) |
-| 1   | [jordanthomas](https://github.com/jordanthomas) |
-| 1   | [pburtchaell](https://github.com/pburtchaell) |
-| 1   | [oncletom](https://github.com/oncletom) |
-| 1   | [tomcode](https://github.com/tomcode) |
-| 1   | [tylerhowarth](https://github.com/tylerhowarth) |
-
+| **Commits** | **Contributor**<br/> | 
+|  | 949 | [jonschlinkert](https://github.com/jonschlinkert) |
+|  | 577 | [doowb](https://github.com/doowb) |
+|  | 11 | [adjohnson916](https://github.com/adjohnson916) |
+|  | 7 | [Arkkimaagi](https://github.com/Arkkimaagi) |
+|  | 4 | [bendrucker](https://github.com/bendrucker) |
+|  | 2 | [avr](https://github.com/avr) |
+|  | 2 | [thegreatsunra](https://github.com/thegreatsunra) |
+|  | 2 | [StevenBlack](https://github.com/StevenBlack) |
+|  | 2 | [xzyfer](https://github.com/xzyfer) |
+|  | 2 | [ain](https://github.com/ain) |
+|  | 1 | [prettyboymp](https://github.com/prettyboymp) |
+|  | 1 | [asans](https://github.com/asans) |
+|  | 1 | [bauerca](https://github.com/bauerca) |
+|  | 1 | [jordanthomas](https://github.com/jordanthomas) |
+|  | 1 | [pburtchaell](https://github.com/pburtchaell) |
+|  | 1 | [oncletom](https://github.com/oncletom) |
+|  | 1 | [tomcode](https://github.com/tomcode) |
+|  | 1 | [tylerhowarth](https://github.com/tylerhowarth) |
 
 ## Other projects
- * [github-base](https://github.com/jonschlinkert/github-base): Simple, opinionated node.js interface for creating basic apps with the GitHub API.
- * [get-pkgs](https://github.com/jonschlinkert/get-pkgs): Get the package.json for an array of repos from the npm registry, optionally filtering properties using glob patterns.  
+
+* [get-pkgs](https://www.npmjs.com/package/get-pkgs): Get the package.json for an array of repos from the npm registry, optionally filtering properties… [more](https://www.npmjs.com/package/get-pkgs) | [homepage](https://github.com/jonschlinkert/get-pkgs)
+* [github-base](https://www.npmjs.com/package/github-base): Base methods for creating node.js apps that work with the GitHub API. | [homepage](https://github.com/jonschlinkert/github-base)
 
 ## Running tests
+
 Install dev dependencies:
 
-```bash
-npm i -d && npm test
+```sh
+$ npm i -d && npm test
 ```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/github-contributors/issues)
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/github-contributors/issues/new).
 
 ## Author
 
 **Jon Schlinkert**
 
 + [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert) 
++ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
 
 ## License
-Copyright (c) 2015 Jon Schlinkert  
-Released under the MIT license
+
+Copyright © 2015 Jon Schlinkert
+Released under the MIT license.
 
 ***
 
-_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on March 31, 2015._
+_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on October 17, 2015._
