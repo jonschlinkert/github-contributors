@@ -2,7 +2,7 @@
 
 var pad = require('right-pad-values');
 var mdu = require('markdown-utils');
-var base = require('github-base');
+var GitHub = require('github-base');
 var format = {};
 
 module.exports = function contributors(repo, options, cb) {
@@ -19,8 +19,9 @@ module.exports = function contributors(repo, options, cb) {
   }
 
   options = options || {};
-  var url = 'repos/' + repo + '/contributors';
-  base(url, options, function (err, res) {
+  var url = '/repos/:repo/contributors';
+  var github = new GitHub(options);
+  github.getAll(url, {repo: repo}, function (err, res) {
     if (err) return cb(err);
     if (options.format) {
       if (!format.hasOwnProperty(options.format)) {
