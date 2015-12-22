@@ -11,7 +11,8 @@ module.exports = function contributors(repo, options, cb) {
   }
 
   if (typeof options === 'function') {
-    cb = options; options = {};
+    cb = options;
+    options = {};
   }
 
   if (typeof cb !== 'function') {
@@ -19,9 +20,9 @@ module.exports = function contributors(repo, options, cb) {
   }
 
   options = options || {};
-  var url = '/repos/:repo/contributors';
   var github = new GitHub(options);
-  github.getAll(url, {repo: repo}, function (err, res) {
+
+  github.getAll('/repos/:repo/contributors', {repo: repo}, function (err, res) {
     if (err) return cb(err);
     if (options.format) {
       if (!format.hasOwnProperty(options.format)) {
@@ -33,11 +34,15 @@ module.exports = function contributors(repo, options, cb) {
   });
 };
 
+format.json = function json(arr) {
+  return arr;
+};
+
 format.table = function table(arr) {
   arr = pad(arr, 'contributions');
-  var res = '| **Commits** | **Contributor**<br/> |';
+  var res = '| **Commits** | **Contributor**<br/> |  ';
   res += '\n';
-  res += '| --- | --- |';
+  res += '| --- | --- |  ';
   res += '\n';
 
   arr.forEach(function (person) {
@@ -45,7 +50,7 @@ format.table = function table(arr) {
     res += person.contributions;
     res += ' | ';
     res += mdu.link(person.login, person.html_url);
-    res += ' |';
+    res += ' |  ';
     res += '\n';
   });
   return res;
