@@ -3,21 +3,12 @@
   "description": "Generate a markdown or JSON list of contributors for a project using the GitHub API.",
   "version": "0.2.0",
   "homepage": "https://github.com/jonschlinkert/github-contributors",
-  "author": {
-    "name": "Jon Schlinkert",
-    "url": "https://github.com/jonschlinkert"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jonschlinkert/github-contributors.git"
-  },
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/github-contributors",
   "bugs": {
     "url": "https://github.com/jonschlinkert/github-contributors/issues"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/jonschlinkert/github-contributors/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "files": [
     "index.js"
   ],
@@ -36,5 +27,17 @@
   "devDependencies": {
     "mocha": "*",
     "should": "*"
+  },
+  "keywords": [
+    "contributors",
+    "github"
+  ],
+  "verb": {
+    "related": {
+      "list": [
+        "get-pkgs",
+        "github-base"
+      ]
+    }
   }
 }
