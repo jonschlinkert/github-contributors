@@ -38,6 +38,10 @@
         "get-pkgs",
         "github-base"
       ]
-    }
+    },
+    "layout": "default",
+    "plugins": [
+      "gulp-format-md"
+    ]
   }
 }
