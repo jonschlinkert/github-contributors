@@ -1,7 +1,7 @@
 {
   "name": "github-contributors",
   "description": "Generate a markdown or JSON list of contributors for a project using the GitHub API.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonschlinkert/github-contributors",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/github-contributors",
@@ -22,9 +22,10 @@
   "dependencies": {
     "github-base": "^0.4.0",
     "markdown-utils": "^0.7.1",
-    "right-pad-values": "^0.2.1"
+    "right-pad-values": "^0.3.1"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.5",
     "mocha": "*",
     "should": "*"
   },
