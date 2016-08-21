@@ -1,5 +1,6 @@
 'use strict';
 
+var extend = require('extend-shallow');
 var pad = require('right-pad-values');
 var mdu = require('markdown-utils');
 var GitHub = require('github-base');
@@ -19,22 +20,20 @@ module.exports = function contributors(repo, options, cb) {
     throw new TypeError('github-contributors expects callback to be a function.');
   }
 
-  options = options || {};
-  var github = new GitHub(options);
+  var opts = extend({format: 'noop'}, options);
+  var github = new GitHub(opts);
 
   github.getAll('/repos/:repo/contributors', {repo: repo}, function (err, res) {
     if (err) return cb(err);
-    if (options.format) {
-      if (!format.hasOwnProperty(options.format)) {
-        cb(new Error('github-contributors does not have format: ' + options.format));
-      }
-      return cb(null, format[options.format](res));
+    if (!format.hasOwnProperty(opts.format)) {
+      cb(new Error('github-contributors does not have format: ' + opts.format));
+      return;
     }
-    cb(null, res);
+    cb(null, format[opts.format](res));
   });
 };
 
-format.json = function json(arr) {
+format.noop = function noop(arr) {
   return arr;
 };
 
