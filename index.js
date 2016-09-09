@@ -1,7 +1,7 @@
 'use strict';
 
 var GitHub = require('github-base');
-var format = require('./formats');
+var format = require('format-people');
 
 module.exports = function contributors(repo, options, cb) {
   if (typeof options === 'function') {
@@ -20,12 +20,8 @@ module.exports = function contributors(repo, options, cb) {
   var method = options && options.format || 'noop';
   var github = new GitHub(options);
 
-  github.paged(`/repos/:${repo}/contributors`, function(err, res) {
+  github.paged(`/repos/:${repo}/contributors`, function(err, data) {
     if (err) return cb(err);
-    if (!format.hasOwnProperty(method)) {
-      cb(new Error('invalid format: ' + method));
-      return;
-    }
-    cb(null, format[method](res));
+    cb(null, format(data, options));
   });
 };

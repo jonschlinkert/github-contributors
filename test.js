@@ -1,12 +1,17 @@
 'use strict';
 
 require('mocha');
+var extend = require('extend-shallow');
+var store = require('data-store')('github-base-tests');
 var assert = require('assert');
 var contributors = require('./');
+// todo: wire up CLI to set auth
+var auth = store.get('auth') || {};
 
-describe('contributors', function () {
-  it('should return an empty array when the URL is not found', function (cb) {
-    contributors('flkjsalkfjas;lj', function (err, res) {
+
+describe('contributors', function() {
+  it('should return an empty array when the URL is not found', function(cb) {
+    contributors('flkjsalkfjas;lj', auth, function(err, res) {
       if (err) return cb(err);
       assert(Array.isArray(res));
       assert.equal(res.length, 0);
@@ -14,10 +19,9 @@ describe('contributors', function () {
     });
   });
 
-  it('should get a valid response (json) from the github api:', function (cb) {
-    contributors('assemble/assemble', function (err, res) {
+  it('should get a valid response (json) from the github api:', function(cb) {
+    contributors('assemble/assemble', auth, function(err, res) {
       if (err) return cb(err);
-      res.should.be.an.array;
       assert(Array.isArray(res));
       assert(res[0].hasOwnProperty('login'));
       assert(res[0].hasOwnProperty('id'));
@@ -27,43 +31,48 @@ describe('contributors', function () {
     });
   });
 
-  it('should generate a formatted list of contributors:', function (cb) {
-    contributors('jonschlinkert/micromatch', {format: 'list'}, function (err, res) {
+  it('should generate a formatted list of contributors:', function(cb) {
+    var opts = extend({}, auth, {format: 'list'});
+    contributors('jonschlinkert/micromatch', opts, function(err, res) {
       if (err) return cb(err);
       assert(res.indexOf('**Commits** / **Contributor**') !== -1);
       cb();
     });
   });
 
-  it('should generate a formatted, aligned list of contributors:', function (cb) {
-    contributors('jonschlinkert/gray-matter', {format: 'aligned'}, function (err, res) {
+  it('should generate a formatted, aligned list of contributors:', function(cb) {
+    var opts = extend({}, auth, {format: 'aligned'});
+
+    contributors('jonschlinkert/gray-matter', opts, function(err, res) {
       if (err) return cb(err);
       assert(res.indexOf('COMMITS') !== -1);
       cb();
     });
   });
 
-  it('should generate a formatted table of contributors:', function (cb) {
-    contributors('assemble/assemble', {format: 'table'}, function (err, res) {
+  it('should generate a formatted table of contributors:', function(cb) {
+    var opts = extend({}, auth, {format: 'table'});
+
+    contributors('assemble/assemble', opts, function(err, res) {
       if (err) return cb(err);
       assert(res.indexOf('| **Commits** | **Contributor**<br/> |') !== -1);
       cb();
     });
   });
 
-  it('should throw an error when repo is not a string:', function () {
-    (function () {
+  it('should throw an error when repo is not a string:', function() {
+    assert.throws(function() {
       contributors('foo');
-    }).should.throw('expected callback to be a function.');
+    }, /expected callback to be a function/);
   });
 
-  it('should throw an error when no callback is given.', function () {
-    (function () {
+  it('should throw an error when no callback is given.', function() {
+    assert.throws(function() {
       contributors('foo');
-    }).should.throw('expected callback to be a function.');
+    }, /expected callback to be a function/);
 
-    (function () {
+    assert.throws(function() {
       contributors('foo', {});
-    }).should.throw('expected callback to be a function.');
+    }, /expected callback to be a function/);
   });
 });
