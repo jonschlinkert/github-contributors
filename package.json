@@ -10,9 +10,7 @@
   },
   "license": "MIT",
   "files": [
-    "index.js",
-    "LICENSE",
-    "README.md"
+    "index.js"
   ],
   "main": "index.js",
   "engines": {
@@ -22,8 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "extend-shallow": "^2.0.1",
-    "github-base": "^0.4.1",
+    "github-base": "^0.5.0",
     "markdown-utils": "^0.7.3",
     "right-pad-values": "^0.3.1"
   },
