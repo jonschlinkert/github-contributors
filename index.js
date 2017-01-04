@@ -21,7 +21,14 @@ module.exports = function contributors(repo, options, cb) {
   var github = new GitHub(options);
 
   github.paged(`/repos/:${repo}/contributors`, function(err, data) {
-    if (err) return cb(err);
+    if (err) {
+      if (/CreateListFromArrayLike/.test(err.message)) {
+        cb(null, []);
+        return;
+      }
+      cb(err);
+      return;
+    }
     cb(null, format(data, options));
   });
 };
