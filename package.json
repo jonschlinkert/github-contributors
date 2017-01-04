@@ -1,7 +1,7 @@
 {
   "name": "github-contributors",
   "description": "Generate a markdown or JSON list of contributors for a project using the GitHub API.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "homepage": "https://github.com/jonschlinkert/github-contributors",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/github-contributors",
